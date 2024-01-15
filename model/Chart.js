@@ -6,10 +6,7 @@ const { Schema } = mongoose;
 //스키마의 역활은 단순 작업지시서(설계도면같은것)
 const chartSchema = Schema(
   {
-    userId: {
-      type: mongoose.ObjectId,
-      ref: User,
-    },
+    userId: { type: mongoose.ObjectId, ref: User },
     items: [
       {
         productId: {

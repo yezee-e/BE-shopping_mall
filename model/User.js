@@ -4,19 +4,9 @@ const { Schema } = mongoose;
 //스키마의 역활은 단순 작업지시서(설계도면같은것)
 const userSchema = Schema(
   {
-    name: {
-      type: String,
-      required: true,
-    },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    password: {
-      type: String,
-      required: true,
-    },
+    name: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
     level: {
       type: String,
       default: 'customer', //2types:customer,admin

@@ -6,27 +6,11 @@ const { Schema } = mongoose;
 //스키마의 역활은 단순 작업지시서(설계도면같은것)
 const orderItemSchema = Schema(
   {
-    shipTo: {
-      type: Object,
-      required: true,
-    },
-    contact: {
-      type: Object,
-      required: true,
-    },
-    totalPrice: {
-      type: Number,
-      required: true,
-      default: 0,
-    },
-    userId: {
-      type: mongoose.ObjectId,
-      ref: User,
-    },
-    status: {
-      type: String,
-      default: 'preparing',
-    },
+    shipTo: { type: Object, required: true },
+    contact: { type: Object, required: true },
+    totalPrice: { type: Number, required: true, default: 0 },
+    userId: { type: mongoose.ObjectId, ref: User },
+    status: { type: String, default: 'preparing' },
     items: [
       {
         productId: { type: mongoose.ObjectId, ref: Product },
@@ -35,9 +19,7 @@ const orderItemSchema = Schema(
         size: { type: String, required: true },
       },
     ],
-    oderNum: {
-      type: String,
-    },
+    oderNum: { type: String },
   },
   { timestamps: true }
 );
@@ -51,8 +33,6 @@ orderItemSchema.methods.toJSON = function () {
 
   return obj;
 };
-
 //실제 데이터가 들어가는 곳은 Model
 const OrderItem = mongoose.model('OrderItem', orderItemSchema);
-
 module.exports = OrderItem;
